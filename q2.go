@@ -6,6 +6,8 @@ import (
     "strconv"
     "strings"
     "time"
+    // "bufio"
+    //  "os"
 )
 
 func getCPUSample() (idle, total uint64) {
@@ -34,7 +36,15 @@ func getCPUSample() (idle, total uint64) {
     return
 }
 
+
+
 func main() {
+    
+    var i int
+    _, err := fmt.Scanf("%d", &i)
+    _=err
+
+
     idle0, total0 := getCPUSample()
     time.Sleep(3 * time.Second)
     idle1, total1 := getCPUSample()
@@ -43,5 +53,10 @@ func main() {
     totalTicks := float64(total1 - total0)
     cpuUsage := 100 * (totalTicks - idleTicks) / totalTicks
 
+for{
+    time.Sleep(time.Duration(i) * time.Millisecond)
     fmt.Printf("CPU usage is %f%% [busy: %f, total: %f]\n", cpuUsage, totalTicks-idleTicks, totalTicks)
+    }
+    
+
 }
