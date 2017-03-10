@@ -73,7 +73,7 @@ func (c *Client) SendMessage(channel, message string) error {
 }
 
 func main() {
-    c := NewClient("xoxb-153286576598-SDBltOow1zwXNJkQh8BF26Cw")
+    c := NewClient("your_api_token")
     if err := c.SendMessage("#general", "The cron job to delete all trace of cat pictures completed successfully"); err != nil {
         log.Fatal(err)
     }
